@@ -27,7 +27,6 @@ export class HomePage {
 		this.request
 			.makeSearch(this.local)
 			.then((data: any) => {
-				console.log(data.geonames);
 				this.firstSearch = true;
 				this.locais = data.geonames;
 				this.buscado = true;
@@ -56,7 +55,6 @@ export class HomePage {
 				await popover.present();
 			})
 			.catch(async (err: any) => {
-				console.error(err);
 				loading.dismiss();
 				const toast = await this.toastController.create({
 					message: 'Não foi possível obter os detalhes',

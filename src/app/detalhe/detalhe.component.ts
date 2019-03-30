@@ -15,7 +15,6 @@ export class DetalheComponent implements OnInit {
 
 	ngOnInit() {
 		this.detalhes = this.navParams.get('detalhes');
-		console.log(this.detalhes);
 	}
 
 	abrirWikipedia() {
