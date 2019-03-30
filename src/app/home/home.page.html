@@ -1,0 +1,21 @@
+<ion-content>
+  <div id="content" [ngClass]="{'searched': firstSearch}">
+    <div class="div-center">
+      <ion-searchbar placeholder="Cidade, Estado ou País" [(ngModel)]="local" name="local" (ionChange)="buscar()" animated debounce="500"></ion-searchbar>
+    </div>
+  </div>
+  <section *ngIf="buscado">
+    <h1 *ngIf="searching"><ion-spinner></ion-spinner></h1>
+    <h1 *ngIf="!locais.length">Nenhum resultado encontrado.</h1>
+    <ion-list *ngIf="locais.length">
+      <ion-item detail *ngFor="let l of locais;" (click)="abrirPopover($event, l.geonameId)">
+        <ion-label text-wrap>
+          <ion-text color="primary">
+            <h3>{{ l.name }}</h3>
+          </ion-text>
+          <p><b>{{ l.adminName1 ? l.adminName1 + ' / ' : '' }}</b>{{ l.countryName }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
+</ion-content>

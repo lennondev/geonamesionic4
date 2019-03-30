@@ -1,0 +1,30 @@
+<ion-grid>
+    <ion-row *ngIf="detalhes?.countryName">
+        <ion-col><b>País:</b> {{ detalhes.countryName }}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="detalhes?.timezone?.timeZoneId">
+        <ion-col><b>Fuso horário:</b> {{ detalhes.timezone.timeZoneId }}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="detalhes?.timezone?.gmtOffset">
+        <ion-col><b>GMT:</b> {{ detalhes.timezone.gmtOffset }}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="detalhes?.population">
+        <ion-col><b>População:</b> {{ detalhes.population }}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="detalhes?.lat">
+        <ion-col><b>Latitude:</b> {{ detalhes.lat }}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="detalhes?.lng">
+        <ion-col><b>Longitude:</b> {{ detalhes.lng }}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="detalhes?.wikipediaURL">
+        <ion-col>
+            <ion-buttons>
+                <ion-button (click)="abrirWikipedia()" color="primary">
+                    <ion-icon slot="icon-only" name="link"></ion-icon>
+                </ion-button>
+                Wikipedia
+            </ion-buttons>
+        </ion-col>
+    </ion-row>
+</ion-grid>
