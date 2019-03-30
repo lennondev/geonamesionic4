@@ -23,6 +23,11 @@ export class HomePage {
 	) {}
 
 	buscar() {
+		if (!this.local.length) {
+			this.buscado = false;
+			this.firstSearch = false;
+			return;
+		}
 		this.searching = true;
 		this.request
 			.makeSearch(this.local)
